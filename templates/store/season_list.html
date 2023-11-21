@@ -9,7 +9,7 @@
             <div class="col-sm-4">
                 <div class="page-header float-left">
                     <div class="page-title">
-                        <h1>Dashboard</h1>
+                        <h1>Panel</h1>
                     </div>
                 </div>
             </div>
@@ -17,9 +17,9 @@
                 <div class="page-header float-right">
                     <div class="page-title">
                         <ol class="breadcrumb text-right">
-                            <li><a href="#">Dashboard</a></li>
-                            <li><a href="#">Season</a></li>
-                            <li class="active">List</li>
+                            <li><a href="#">Panel</a></li>
+                            <li><a href="#">Usuarios</a></li>
+                            <li class="active">Lista</li>
                         </ol>
                     </div>
                 </div>
@@ -55,6 +55,7 @@
                                 <td>{{ season.name }}</td>
                                 <td>{{ season.description }}</td>
                                 <td>{{ season.created_date }}</td>
+                                <td><a href="modificar/" class="btn btn-info mt-5">modificar</a></td>
                             </tr>
                             {% endfor %}
                             {% else %}
