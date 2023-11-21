@@ -83,11 +83,10 @@ WSGI_APPLICATION = 'inventory.wsgi.application'
 
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR/ "db.sqlite3",
+    'default': dj_database_url.config(  default='postgres://felipe:5SAwwBteDOo9VbgbhbfAIPucxI8mpa88@dpg-cldur29pl96s73emn8eg-a.ohio-postgres.render.com/alquimia_bd'
+    )
     }
-}
+
 database_url = os.environ.get("DATABASE_URL")
 DATABASES['default'] = dj_database_url.parse(database_url)
 
