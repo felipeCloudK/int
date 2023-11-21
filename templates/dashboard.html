@@ -1,0 +1,255 @@
+{% extends 'base/base.html' %}
+
+{% block title %}Dashboard{% endblock title %}
+{% load static %}
+{% block content %}
+    <!-- Widgets  -->
+    <div class="row ">
+
+
+        <div class="col-lg-3 col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="stat-widget-five">
+                        <div class="stat-icon dib flat-color-2">
+                            <i class="fa fa-product-hunt"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="text-left dib">
+                                <div class="stat-text"><span class="count">{{ supplier }}</span></div>
+                                <div class="stat-heading">Categoria</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="stat-widget-five">
+                        <div class="stat-icon dib flat-color-4">
+                            <i class="fa fa-users"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="text-left dib">
+                                <div class="stat-text"><span class="count">{{ buyer }}</span></div>
+                                <div class="stat-heading">Usuarios</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Widgets -->
+    
+    <div class="clearfix"></div>
+
+    <!-- Orders -->
+    <div class="orders">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="box-title">Bodega </h4>
+                    </div>
+                    <div class="card-body--">
+                        <div class="table-stats order-table ov-h">
+                            <table class="table ">
+                                <thead>
+                                    <tr>
+                                        <th class="serial">#</th>
+                                        <th>Supplier</th>
+                                        <th>Product</th>
+                                        <th>Design</th>
+                                        <th>Color</th>
+                                        <th>Buyer</th>
+                                        <th>Season</th>
+                                        <th>Drop</th>
+                                        <th>Date</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% if orders %}
+                                    {% for order in orders %}
+                                    <tr>
+                                        <td class="serial">{{ forloop.counter }}</td>
+                                        <td>{{ order.supplier }}</td>
+                                        <td>{{ order.product }}</td>
+                                        <td>{{ order.design }}</td>
+                                        <td>{{ order.color }}</td>
+                                        <td>{{ order.buyer }}</td>
+                                        <td>{{ order.season }}</td>
+                                        <td>{{ order.drop }}</td>
+                                        <td>{{ order.created_date }}</td>
+                                        <td>
+                                            {% if order.status == 'pending' %}
+                                                <a class="btn btn-warning" href="">{{ order.status }}</a>
+                                            {% elif order.status == 'decline' %}
+                                                <a class="btn btn-danger" href="">{{ order.status }}</a>
+                                            {% elif order.status == 'complete' %}
+                                                <a class="btn btn-success" href="">{{ order.status }}</a>
+                                            {% elif order.status == 'approved' %}
+                                                <a class="btn btn-primary" href="">{{ order.status }}</a>
+                                            {% elif order.status == 'bulk' %}
+                                                <a class="btn btn-secondary" href="">{{ order.status }}</a>
+                                            {% else %}
+                                                <a class="btn btn-info" href="">{{ order.status }}</a>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                    {% else %}
+                                        <tr><td>No Order Data</td></tr>
+                                    {% endif %}
+                                </tbody>
+                            </table>
+                        </div> <!-- /.table-stats -->
+                    </div>
+                </div> <!-- /.card -->
+            </div>  <!-- /.col-lg-8 -->
+
+            
+        </div>
+    </div>
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+
+    <script >
+        let started = ()=>{
+            console.log("puto ")
+            Highcharts.chart('container', {
+    chart: {
+        type: 'column'
+    },
+    title: {
+        text: 'Corn vs wheat estimated production for 2020',
+        align: 'left'
+    },
+    subtitle: {
+        text:
+            'Source: <a target="_blank" ' +
+            'href="https://www.indexmundi.com/agriculture/?commodity=corn">indexmundi</a>',
+        align: 'left'
+    },
+    xAxis: {
+        categories: ['USA', 'China', 'Brazil', 'EU', 'India', 'Russia'],
+        crosshair: true,
+        accessibility: {
+            description: 'Countries'
+        }
+    },
+    yAxis: {
+        min: 0,
+        title: {
+            text: '1000 metric tons (MT)'
+        }
+    },
+    tooltip: {
+        valueSuffix: ' (1000 MT)'
+    },
+    plotOptions: {
+        column: {
+            pointPadding: 0.2,
+            borderWidth: 0
+        }
+    },
+    series: [
+        {
+            name: 'Corn',
+            data: [406292, 260000, 107000, 68300, 27500, 14500]
+        },
+        {
+            name: 'Wheat',
+            data: [51086, 136000, 5500, 141000, 107180, 77000]
+        }
+    ]
+});
+        }
+    
+    </script>
+    
+    <!-- GRAFICO DE TORTA-->
+    <script>
+        let pie = ()=>{
+            console.log("putopie")
+            Highcharts.chart('container-pie', {
+        chart: {
+            type: 'pie'
+        },
+        title: {
+            text: 'Los Platillo del Mes'
+        },
+        tooltip: {
+            valueSuffix: '%'
+        },
+        subtitle: {
+            text:
+            'Source:<a href="https://www.mdpi.com/2072-6643/11/3/684/htm" target="_default">MDPI</a>'
+        },
+        plotOptions: {
+            series: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: [{
+                    enabled: true,
+                    distance: 20
+                }, {
+                    enabled: true,
+                    distance: -40,
+                    format: '{point.percentage:.1f}%',
+                    style: {
+                        fontSize: '1.2em',
+                        textOutline: 'none',
+                        opacity: 0.7
+                    },
+                    filter: {
+                        operator: '>',
+                        property: 'percentage',
+                        value: 10
+                    }
+                }]
+            }
+        },
+        series: [
+            {
+                name: 'Porciones Disponibles',
+              colorByPoint: true,
+              data: {}
+            }
+        ]
+    });
+    }
+
+    </script>
+    
+    <div class="orders">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="box-title">Bodega </h4>
+                    </div>
+                    <div class="card-body--">
+                        <div class="table-stats order-table ov-h">
+                            <table class="table ">
+                                <div id="container"> <script>started()</script></div>
+                                <div id="container-pie"> <script>  pie()</script></div>
+                            </table>
+                        </div> <!-- /.table-stats -->
+                    </div>
+                </div> <!-- /.card -->
+            </div>  <!-- /.col-lg-8 -->
+
+            
+        </div>
+    </div>
+
+
+    {% endblock content %}
