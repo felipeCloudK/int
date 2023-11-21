@@ -19,7 +19,7 @@ from .forms import (
 
 
 # Supplier views
-@login_required(login_url='login')
+
 def create_supplier(request):
     forms = SupplierForm()
     if request.method == 'POST':
@@ -51,7 +51,7 @@ class SupplierListView(ListView):
 
 
 # Buyer views
-@login_required(login_url='login')
+
 def create_buyer(request):
     forms = BuyerForm()
     if request.method == 'POST':
@@ -83,7 +83,7 @@ class BuyerListView(ListView):
 
 
 # Season views
-@login_required(login_url='login')
+
 def create_season(request):
     forms = SeasonForm()
     if request.method == 'POST':
