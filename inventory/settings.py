@@ -88,7 +88,7 @@ DATABASES = {
         'NAME': 'alquimia2',
         'USER': 'felipe',
         'PASSWORD': '5SAwwBteDOo9VbgbhbfAIPucxI8mpa88',
-        'HOST': 'postgres://felipe:5SAwwBteDOo9VbgbhbfAIPucxI8mpa88@dpg-cldur29pl96s73emn8eg-a.ohio-postgres.render.com/alquimia_bd',
+        'HOST': 'dpg-cldur29pl96s73emn8eg-a.ohio-postgres.render.com',
         'PORT': '5432',
     }
 }
