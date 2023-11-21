@@ -85,7 +85,7 @@ WSGI_APPLICATION = 'inventory.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'alquimia2',
+        'NAME': 'alquimia_bd',
         'USER': 'felipe',
         'PASSWORD': '5SAwwBteDOo9VbgbhbfAIPucxI8mpa88',
         'HOST': 'dpg-cldur29pl96s73emn8eg-a.ohio-postgres.render.com',

@@ -16,7 +16,7 @@ def login_page(request):
                 login(request, user)
                 return redirect('dashboard')
     context = {'form': forms}
-    return render(request, 'dashboard.html', context)
+    return render(request, 'users/login.html', context)
 
 
 def logout_page(request):
