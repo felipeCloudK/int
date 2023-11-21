@@ -16,7 +16,7 @@
                         </div>
                         <div class="stat-content">
                             <div class="text-left dib">
-                                <div class="stat-text"><span class="count">{{ supplier }}</span></div>
+                                <div class="stat-text"><span class="count">{{ season  }}</span></div>
                                 <div class="stat-heading">Categoria</div>
                             </div>
                         </div>
@@ -160,14 +160,24 @@
     },
     series: [
         {
-            name: 'Corn',
-            data: [406292, 260000, 107000, 68300, 27500, 14500]
-        },
-        {
-            name: 'Wheat',
-            data: [51086, 136000, 5500, 141000, 107180, 77000]
-        }
-    ]
+            name: 'Porcentaje de Venta ',
+            showInLegend: false,
+            colorByPoint: true,
+            data:[{
+                name: 'venta 1',
+                    y: 100000
+            },{
+                name:'venta 2 ',
+                y:150000
+            },{
+                name:'venta 3 ',
+                y:1230000
+            },
+            {
+                name:'venta 4',
+                y:1504230
+            }]
+        }]
 });
         }
     
