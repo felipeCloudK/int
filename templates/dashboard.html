@@ -129,17 +129,15 @@
         type: 'column'
     },
     title: {
-        text: 'Corn vs wheat estimated production for 2020',
-        align: 'left'
+        text: 'Reporte de ventas del año 2023',
     },
     subtitle: {
         text:
-            'Source: <a target="_blank" ' +
-            'href="https://www.indexmundi.com/agriculture/?commodity=corn">indexmundi</a>',
+            'Reporte de columnas' ,
         align: 'left'
     },
     xAxis: {
-        categories: ['USA', 'China', 'Brazil', 'EU', 'India', 'Russia'],
+        categories: ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'],
         crosshair: true,
         accessibility: {
             description: 'Countries'
@@ -148,11 +146,11 @@
     yAxis: {
         min: 0,
         title: {
-            text: '1000 metric tons (MT)'
+            text: 'Valores $'
         }
     },
     tooltip: {
-        valueSuffix: ' (1000 MT)'
+        valueSuffix: '$'
     },
     plotOptions: {
         column: {
@@ -189,10 +187,7 @@
         tooltip: {
             valueSuffix: '%'
         },
-        subtitle: {
-            text:
-            'Source:<a href="https://www.mdpi.com/2072-6643/11/3/684/htm" target="_default">MDPI</a>'
-        },
+        subtitle: [],
         plotOptions: {
             series: {
                 allowPointSelect: true,
@@ -221,7 +216,19 @@
             {
                 name: 'Porciones Disponibles',
               colorByPoint: true,
-              data: {}
+              data: [{
+                name:'lasaña',
+                y:10
+              },{
+                name:'fideo con salsa',
+                y:19
+              },{
+                name:'fideo al pesto',
+                y:6
+              },{
+                name:'Pure con milanesa',
+                y:19
+              }]
             }
         ]
     });
